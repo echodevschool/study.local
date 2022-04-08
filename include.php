@@ -10,5 +10,6 @@ if (
     $user = new User($_POST['name'], $_POST['password'], $_POST['email']);
     $user->saveData();
     $user->auth();
+//test commit sts
 }
 header('Location: /form.php');
