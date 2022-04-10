@@ -35,17 +35,17 @@ class User
         }
 //        $_SESSION['is_auth'] = true;
 //        $_SESSION['is_admin'] = $this->name;
-//        $_SESSION['name'] = $this->name;
-//        $_SESSION['email'] = $this->email;
-//        $_SESSION['password'] = $this->password;
+        $_SESSION['name'] = $this->name;
+        $_SESSION['email'] = $this->email;
+        $_SESSION['password'] = $this->password;
 //
-        $data = file_get_contents('user.txt');
+        $data = file_get_contents('USERS.txt');
         $data = explode("\n", $data);
         foreach ($data as $item) {
             $logoPass = explode('-',$item);
             $checkEmail = trim($logoPass[1]);
             $checkPassword = trim($logoPass[2]);
-            if ($checkEmail == $email && $checkPassword == $password){
+            if ($checkEmail == $this->email && $checkPassword == $this->password){
                 $_SESSION['is_auth'] = true;
                 break;
             }

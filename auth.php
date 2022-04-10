@@ -1,18 +1,21 @@
 <?php
 session_start();
+require_once 'User.php';
 
 $_SESSION['is_auth'] = false;
 
-if (isset($_POST['email']) && isset($_POST['password']) && $_POST['email'] !== '' && $_POST['password'] !== ''){
+if (
+    isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
+    && $_POST['name'] !== '' && $_POST['email'] !== '' && $_POST['password'] !== ''
+){
  $email = $_POST['email'];
  $password = $_POST['password'];
- $user = new User('name','email','password');{
-     unset($user['name']);
-    }
+ $name = $_POST['name'];
+//    $user = new User($_POST['email'], $_POST['password']);
 
 
-
- if ($user->auth())
+    $user = new User($_POST['name'], $_POST['password'], $_POST['email']);
+    if ($user->auth())
  {
  return true;
  }
