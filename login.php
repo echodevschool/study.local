@@ -9,11 +9,9 @@ session_start();
 </head>
 <body>
 <?php
-
 if (isset($_SESSION['is_auth']) && $_SESSION['is_auth'] === true) {
     echo '<h1>Авторизация прошла успешно</h1>';
 }
-
 ?>
 
 <form action="/auth.php" method="post" name="form">
